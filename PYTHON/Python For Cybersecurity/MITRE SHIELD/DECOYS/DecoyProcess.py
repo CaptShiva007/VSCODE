@@ -10,5 +10,5 @@ signal.signal(signal.SIGINT,terminated)
 while True:
     siginfo = signal.sigwaitinfo({signal.SIGINT,signal.SIGTERM})
     with open("terminated.txt","w") as f:
-        f.write("Process terminated by %d\n" % siginfo)
+        f.write("Process terminated by %d\n" % siginfo.si_pid)
     sys.exit(0)
